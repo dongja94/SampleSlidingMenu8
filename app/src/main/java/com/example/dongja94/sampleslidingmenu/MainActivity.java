@@ -64,14 +64,18 @@ public class MainActivity extends SlidingFragmentActivity implements MenuFragmen
                 Fragment old = getSupportFragmentManager().findFragmentByTag(TAG_ONE);
                 if (old == null) {
                     emptyBackStack();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new OneFragment(), TAG_ONE).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.left_in, R.anim.set1, R.anim.left_in, R.anim.left_out)
+                            .replace(R.id.container, new OneFragment(), TAG_ONE).addToBackStack(null).commit();
                 }
                 break;
             case MenuFragment.MENU_TWO:
                 Fragment oldtwo = getSupportFragmentManager().findFragmentByTag(TAG_TWO);
                 if (oldtwo == null) {
                     emptyBackStack();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new TwoFragment(), TAG_TWO).addToBackStack(null).commit();
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.left_in, R.anim.set1, R.anim.left_in, R.anim.left_out)
+                            .replace(R.id.container, new TwoFragment(), TAG_TWO).addToBackStack(null).commit();
                 }
                 break;
         }
